@@ -1,0 +1,27 @@
+{% extends 'base.html' %}   <!-- This means this file content will go inside body of 'base.html'  -->
+
+
+{% block content %}
+
+<form action="additionResult">
+    GET Method used for submitting the form.<br/>
+    a : <input type="text" name="num1"></br>
+    b : <input type="text" name="num2"></br>
+    <input type="submit">
+</form>
+
+
+<form action="additionResultPOST/" method="POST">
+    POST Method used for submitting the form.<br/>
+
+    {% csrf_token %}    <!-- We need to use this token because in 'settings.py' have this 'csrf' security set so all
+                                the POST calls we make we need to send this token -->
+
+    a : <input type="text" name="num1"></br>
+    b : <input type="text" name="num2"></br>
+    <input type="submit">
+</form>
+
+
+
+{% endblock %}
